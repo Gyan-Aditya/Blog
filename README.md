@@ -15,7 +15,7 @@ This project is a full-stack, single-page application (SPA) designed to serve as
 * **User Login (`/signin`):** Authenticate users and issue a JWT.
 * **JWT Authentication:** All protected routes require a valid JWT passed in the request header.
 * **Authorization:** Users can only modify or delete their own posts.
-* **Password Hashing:** Passwords are securely stored using a robust hashing algorithm (e.g., `Passwording with Salt`).
+* **Password Hashing:** Passwords are securely stored using a robust hashing algorithm (e.g., `Password hashing with Salt`).
 
 ### Blog Functionality (CRUD)
 * **Create Posts:** Logged-in users can write and publish new blog posts.
