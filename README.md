@@ -2,9 +2,11 @@
 
 **Modern, Secure, and Feature-Rich Blogging Platform**
 
+---
+
 ## 🌟 Overview
 
-This project is a full-stack, single-page application (SPA) designed to serve as a complete blogging platform. It allows users to create, read, update, and delete their own blog posts. The application features robust **authentication and authorization** using **JSON Web Tokens (JWT)** to ensure secure user accounts and protected routes.
+This project is a full-stack web application designed to serve as a complete blogging platform. It allows users to create, read, update, and delete their own blog posts. The application features robust **authentication and authorization** using **JSON Web Tokens (JWT)** to ensure secure user accounts and protected routes. The views are dynamically rendered on the server using **EJS**.
 
 ---
 
@@ -15,7 +17,7 @@ This project is a full-stack, single-page application (SPA) designed to serve as
 * **User Login (`/signin`):** Authenticate users and issue a JWT.
 * **JWT Authentication:** All protected routes require a valid JWT passed in the request header.
 * **Authorization:** Users can only modify or delete their own posts.
-* **Password Hashing:** Passwords are securely stored using a robust hashing algorithm (e.g., `Password hashing with Salt`).
+* **Password Hashing:** Passwords are securely stored using a robust hashing algorithm (**Password hashing with Salt**).
 
 ### Blog Functionality (CRUD)
 * **Create Posts:** Logged-in users can write and publish new blog posts.
@@ -34,21 +36,20 @@ This project is a full-stack, single-page application (SPA) designed to serve as
 
 ## 🛠️ Technologies Used
 
-This project is structured using a standard full-stack architecture, often referred to as the MongoDB, Express, EJS, Node.js.
+This project is structured using a standard full-stack architecture, often referred to as the **MongoDB, Express, EJS, Node.js (MEEN)** stack.
 
-### Backend (API Server)
+### Backend (API Server & Rendering)
 * **Node.js:** JavaScript runtime environment.
 * **Express.js:** Web application framework for Node.js.
 * **MongoDB:** NoSQL database for data persistence.
 * **Mongoose:** ODM (Object Data Modeling) library for MongoDB and Node.js.
 * **JSON Web Token (JWT):** For secure authentication and authorization.
-* **Bcrypt.js:** For hashing user passwords.
+* **Bcrypt.js:** For hashing user passwords securely using a salt.
 
-### Frontend (Client)
-* **React:** JavaScript library for building user interfaces.
-* **React Router:** For navigation and client-side routing.
-* **Axios/Fetch:** For making HTTP requests to the backend API.
-* **Styling:** (e.g., Tailwind CSS, Bootstrap, or styled-components).
+### Frontend (View Engine)
+* **EJS (Embedded JavaScript Templating):** Used as the templating engine to dynamically render HTML views on the server.
+* **HTML/CSS/JavaScript (Client-side):** Standard web technologies for structure, styling, and basic client interactions.
+* **Styling:** (e.g., Tailwind CSS, Bootstrap, or custom CSS).
 
 ---
 
@@ -66,7 +67,6 @@ You need to have the following installed on your machine:
 ```bash
 git clone [https://github.com/Gyan-Aditya/Blog.git](https://github.com/Gyan-Aditya/Blog.git)
 cd Blog
-
 ```
 
 ## ⚙️ Installation and Setup (Continued)
@@ -99,23 +99,6 @@ npm start
 npm run dev
 ```
 The backend server should now be running at http://localhost:5000.
-
-### 3. Front-end Setup (`/client`)
-
-The frontend is typically located in a directory like client/ or frontend/.
-
-```bash
-# Navigate to the frontend directory
-cd ../client 
-# Install dependencies
-npm install
-```
-
-Configuration: Ensure the frontend is configured to communicate with the backend API (e.g., update package.json with a proxy or set an environment variable).
-
-```bash
-npm start
-```
 
 ## 🚀 API Endpoints Overview
 
