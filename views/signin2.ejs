@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+  <title>Signin</title>
+  <style>
+    /* Custom CSS for Animations and Colors */
+    body {
+      background-color: #f0f2f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .signin-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+      animation: slideInDown 0.8s ease-out;
+    }
+
+    .form-heading {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+      font-weight: 700;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 25px;
+      font-weight: 600;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Staggered form element animation */
+    .mb-3:nth-child(1) { animation-delay: 0.2s; }
+    .mb-3:nth-child(2) { animation-delay: 0.4s; }
+    .btn { animation-delay: 0.6s; }
+  </style>
+</head>
+
+<body>
+  <%- include('./partials/nav2') %>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 signin-container">
+        <h2 class="form-heading">Sign In</h2>
+        <form action="/user/signin" method="POST">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
+          </div>
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%- include('./partials/scripts') %>
+</body>
+
+</html>

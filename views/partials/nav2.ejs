@@ -1,0 +1,121 @@
+<style>
+  /* Custom CSS for Nav Animations and Colors */
+  .navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: navFadeIn 0.8s ease-out;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    transition: color 0.3s ease-in-out;
+    color: #007bff !important; /* A vibrant brand color */
+  }
+  
+  .navbar-brand:hover {
+    color: #0056b3 !important;
+  }
+  
+  .nav-item .nav-link {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav-item .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #007bff; /* Underline color */
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .nav-item .nav-link:hover::before {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes navFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Alert message animation */
+  .alert {
+    animation: alertFadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes alertFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Blogify</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <% if (locals.user) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/add">Add Blog</a>
+        </li>
+        <li>
+            <img src="<%= user.profileImageURL %>" class="rounded-circle" width="40px" height="40px" />
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= locals.user.fullName %>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/user/signout">Signout</a></li>
+          </ul>
+        </li>
+        <% } else {%>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signup">Create Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signin">Signin</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% if (locals.error) { %>
+<div class="container mt-4">
+  <div class="alert alert-danger" role="alert">
+    <%= locals.error %>
+  </div>
+</div>
+<% } %>
+
+
+

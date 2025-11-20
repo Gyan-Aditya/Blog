@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+  <title>Homepage</title>
+  <style>
+    /* Custom CSS for Animations and Colors */
+    body {
+      background-color: #f0f2f5; /* A light, modern background color */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .card {
+      background-color: #ffffff;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      animation: fadeInSlideUp 0.8s ease-out; /* Main entry animation */
+      margin-bottom: 20px; /* Spacing between cards */
+    }
+    
+    .card:hover {
+      transform: translateY(-10px) scale(1.02); /* Lift and grow on hover */
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    }
+    
+    .card-img-top {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card-title {
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+      width: 100%; /* Full width button */
+    }
+    
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: scale(1.05); /* Slight scale on hover */
+    }
+
+    @keyframes fadeInSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Animation for the entire container to stagger card animations */
+    .container {
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Staggered animation for each card */
+    .row .col:nth-child(1) .card { animation-delay: 0.1s; }
+    .row .col:nth-child(2) .card { animation-delay: 0.2s; }
+    .row .col:nth-child(3) .card { animation-delay: 0.3s; }
+    .row .col:nth-child(4) .card { animation-delay: 0.4s; }
+    .row .col:nth-child(5) .card { animation-delay: 0.5s; }
+    .row .col:nth-child(6) .card { animation-delay: 0.6s; }
+    /* You can add more for larger layouts */
+  </style>
+</head>
+
+<body>
+  <%- include('./partials/nav2') %>
+  <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <% blogs.forEach(blog => { %>
+      <div class="col">
+        <div class="card h-100">
+          <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="<%= blog.title %>" />
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title %></h5>
+            <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto">View Details</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+  <%- include('./partials/scripts') %>
+</body>
+</html>
+
