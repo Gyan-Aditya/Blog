@@ -15,7 +15,7 @@ This project is a full-stack, single-page application (SPA) designed to serve as
 * **User Login (`/signin`):** Authenticate users and issue a JWT.
 * **JWT Authentication:** All protected routes require a valid JWT passed in the request header.
 * **Authorization:** Users can only modify or delete their own posts.
-* **Password Hashing:** Passwords are securely stored using a robust hashing algorithm (e.g., `bcrypt`).
+* **Password Hashing:** Passwords are securely stored using a robust hashing algorithm (e.g., `Passwording with Salt`).
 
 ### Blog Functionality (CRUD)
 * **Create Posts:** Logged-in users can write and publish new blog posts.
@@ -34,7 +34,7 @@ This project is a full-stack, single-page application (SPA) designed to serve as
 
 ## 🛠️ Technologies Used
 
-This project is structured using a standard full-stack architecture, often referred to as the **MERN Stack** (MongoDB, Express, React, Node.js).
+This project is structured using a standard full-stack architecture, often referred to as the MongoDB, Express, EJS, Node.js.
 
 ### Backend (API Server)
 * **Node.js:** JavaScript runtime environment.
